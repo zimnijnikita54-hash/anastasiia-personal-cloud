@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мой личный мир</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101112;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.app{max-width:900px;margin:auto;padding:24px 18px 100px}
+.header{display:flex;align-items:center;gap:16px;margin:10px 0 28px}
+.avatar{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#444,#181818);display:flex;align-items:center;justify-content:center;font-size:34px;border:1px solid #333}
+h1{font-size:25px;margin:0 0 6px}.sub{color:#a9a9ae;font-size:15px}
+.menu{margin-left:auto;font-size:30px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#1b1c1f;border:1px solid #27282c;border-radius:20px;padding:22px 12px;text-align:center;min-height:145px}
+.icon{font-size:42px;margin-bottom:12px}.name{font-size:17px}.count{color:#999aa0;margin-top:6px;font-size:14px}
+.panel{background:#191a1d;border:1px solid #28292d;border-radius:22px;margin-top:24px;padding:20px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.panel-head b{font-size:19px}.pink{color:#e65bc2}
+.file{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid #2a2b2f}.file:last-child{border:0}
+.fileicon{width:48px;height:48px;border-radius:12px;background:#25262a;display:flex;align-items:center;justify-content:center;font-size:25px}
+.filename{font-size:16px}.meta{color:#92939a;font-size:13px;margin-top:4px}.dots{margin-left:auto;font-size:23px}
+.player{margin-top:24px;border:1px solid #44454a;background:#191a1d;border-radius:22px;padding:20px}
+.song{display:flex;gap:14px;align-items:center}.cover{width:60px;height:60px;border-radius:12px;background:#333;display:flex;align-items:center;justify-content:center}
+.progress{height:4px;background:#444;border-radius:5px;margin:18px 0 8px}.progress span{display:block;width:39%;height:100%;background:#e65bc2;border-radius:5px}
+.times{display:flex;justify-content:space-between;color:#92939a;font-size:13px}.controls{display:flex;justify-content:center;gap:50px;font-size:30px;margin-top:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#111214eF;border-top:1px solid #292a2e;display:flex;justify-content:center;gap:60px;padding:12px 10px calc(12px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
+.nav{text-align:center;color:#999;font-size:12px}.nav .nicon{font-size:24px}.nav.active{color:#e65bc2}
+@media(max-width:600px){.grid{gap:10px}.card{min-height:135px;padding:18px 7px}.icon{font-size:36px}.bottom{gap:30px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="avatar">👩🏻</div>
+    <div><h1>Привет, Анастасия 💗</h1><div class="sub">Добро пожаловать в твой личный мир ✨</div></div>
+    <div class="menu">☰</div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="icon">🌄</div><div class="name">Мои фото</div><div class="count">248 файлов</div></div>
+    <div class="card"><div class="icon">📄</div><div class="name">Документы</div><div class="count">58 файлов</div></div>
+    <div class="card"><div class="icon">🎵</div><div class="name">Музыка</div><div class="count">127 треков</div></div>
+    <div class="card"><div class="icon">💻</div><div class="name">Программы</div><div class="count">24 файла</div></div>
+    <div class="card"><div class="icon">📁</div><div class="name">Файлы</div><div class="count">312 файлов</div></div>
+    <div class="card"><div class="icon">⭐</div><div class="name">Избранное</div><div class="count">16 файлов</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><b>Недавние файлы</b><span class="pink">Смотреть все</span></div>
+    <div class="file"><div class="fileicon">🌅</div><div><div class="filename">Отпуск_2024.jpg</div><div class="meta">Фото · 2.3 MB · 15.05.2024</div></div><div class="dots">⋮</div></div>
+    <div class="file"><div class="fileicon">📕</div><div><div class="filename">Договор.pdf</div><div class="meta">Документ · 1.1 MB · 14.05.2024</div></div><div class="dots">⋮</div></div>
+    <div class="file"><div class="fileicon">🎵</div><div><div class="filename">Любимая песня.mp3</div><div class="meta">Музыка · 4.6 MB · 13.05.2024</div></div><div class="dots">⋮</div></div>
+    <div class="file"><div class="fileicon">💿</div><div><div class="filename">Программа.exe</div><div class="meta">Программа · 89.3 MB · 12.05.2024</div></div><div class="dots">⋮</div></div>
+  </div>
+
+  <div class="player">
+    <div class="panel-head"><b class="pink">Сейчас играет</b><span class="pink">☷</span></div>
+    <div class="song"><div class="cover">🎧</div><div><div class="filename">Night Drive</div><div class="meta">The Midnight</div></div></div>
+    <div class="progress"><span></span></div>
+    <div class="times"><span>1:42</span><span>4:26</span></div>
+    <div class="controls"><span>◀</span><span>▶</span><span>▶|</span></div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="nav active"><div class="nicon">⌂</div>Главная</div>
+  <div class="nav"><div class="nicon">☁</div>Загрузить</div>
+  <div class="nav"><div class="nicon">⌕</div>Поиск</div>
+  <div class="nav"><div class="nicon">⚙</div>Настройки</div>
+</div>
+</body>
+</html>
