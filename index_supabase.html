@@ -2,130 +2,714 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Мой личный мир</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Анастасия — Personal Cloud</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#101112;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.app{max-width:900px;margin:auto;padding:24px 18px 100px}
-.header{display:flex;align-items:center;gap:16px;margin:10px 0 28px}
-.avatar{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#444,#181818);display:flex;align-items:center;justify-content:center;font-size:34px;border:1px solid #333}
-h1{font-size:25px;margin:0 0 6px}.sub{color:#a9a9ae;font-size:15px}
-.menu{margin-left:auto;font-size:30px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:#1b1c1f;border:1px solid #27282c;border-radius:20px;padding:22px 12px;text-align:center;min-height:145px}
-.icon{font-size:42px;margin-bottom:12px}.name{font-size:17px}.count{color:#999aa0;margin-top:6px;font-size:14px}
-.panel{background:#191a1d;border:1px solid #28292d;border-radius:22px;margin-top:24px;padding:20px}
-.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.panel-head b{font-size:19px}.pink{color:#e65bc2}
-.file{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid #2a2b2f}.file:last-child{border:0}
-.fileicon{width:48px;height:48px;border-radius:12px;background:#25262a;display:flex;align-items:center;justify-content:center;font-size:25px}
-.filename{font-size:16px}.meta{color:#92939a;font-size:13px;margin-top:4px}.dots{margin-left:auto;font-size:23px}
-.player{margin-top:24px;border:1px solid #44454a;background:#191a1d;border-radius:22px;padding:20px}
-.song{display:flex;gap:14px;align-items:center}.cover{width:60px;height:60px;border-radius:12px;background:#333;display:flex;align-items:center;justify-content:center}
-.progress{height:4px;background:#444;border-radius:5px;margin:18px 0 8px}.progress span{display:block;width:39%;height:100%;background:#e65bc2;border-radius:5px}
-.times{display:flex;justify-content:space-between;color:#92939a;font-size:13px}.controls{display:flex;justify-content:center;gap:50px;font-size:30px;margin-top:12px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#111214eF;border-top:1px solid #292a2e;display:flex;justify-content:center;gap:60px;padding:12px 10px calc(12px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
-.nav{text-align:center;color:#999;font-size:12px}.nav .nicon{font-size:24px}.nav.active{color:#e65bc2}
-@media(max-width:600px){.grid{gap:10px}.card{min-height:135px;padding:18px 7px}.icon{font-size:36px}.bottom{gap:30px}}
+body{
+margin:0;
+background:#101112;
+color:#f5f5f7;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+.app{
+max-width:900px;
+margin:auto;
+padding:24px 18px 110px
+}
+.header{
+display:flex;
+align-items:center;
+gap:16px;
+margin:10px 0 28px
+}
+.avatar{
+width:72px;
+height:72px;
+border-radius:50%;
+background:linear-gradient(135deg,#e65bc2,#5b3c99);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px
+}
+h1{font-size:25px;margin:0 0 6px}
+.sub{color:#aaa;font-size:14px}
+.logout{
+margin-left:auto;
+border:1px solid #333;
+background:#1b1c1f;
+color:#fff;
+border-radius:12px;
+padding:10px 14px
+}
+
+.auth{
+background:#191a1d;
+border:1px solid #292a2e;
+border-radius:22px;
+padding:22px;
+margin-bottom:24px
+}
+.auth h2{margin-top:0}
+input{
+width:100%;
+padding:14px;
+margin:7px 0;
+border-radius:12px;
+border:1px solid #333;
+background:#111214;
+color:white;
+font-size:16px
+}
+button{
+border:0;
+border-radius:12px;
+padding:13px 18px;
+font-size:15px;
+cursor:pointer
+}
+.primary{
+background:#e65bc2;
+color:white;
+width:100%;
+margin-top:8px
+}
+.secondary{
+background:#292a2e;
+color:white;
+width:100%;
+margin-top:8px
+}
+.status{
+margin-top:12px;
+color:#aaa;
+font-size:14px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+.card{
+background:#1b1c1f;
+border:1px solid #27282c;
+border-radius:20px;
+padding:22px 12px;
+text-align:center;
+min-height:140px
+}
+.icon{font-size:38px;margin-bottom:10px}
+.name{font-size:17px}
+.count{color:#999;margin-top:6px;font-size:14px}
+
+.panel{
+background:#191a1d;
+border:1px solid #28292d;
+border-radius:22px;
+margin-top:24px;
+padding:20px
+}
+.panel-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:16px
+}
+.panel-head b{font-size:19px}
+.pink{color:#e65bc2}
+
+.upload{
+border:2px dashed #3a3b40;
+border-radius:18px;
+padding:25px;
+text-align:center;
+margin-bottom:20px
+}
+.upload input{display:none}
+.upload label{
+display:block;
+background:#292a2e;
+padding:14px;
+border-radius:12px;
+cursor:pointer
+}
+
+.file{
+display:flex;
+align-items:center;
+gap:13px;
+padding:13px 0;
+border-bottom:1px solid #2a2b2f
+}
+.file:last-child{border:0}
+.fileicon{
+width:48px;
+height:48px;
+border-radius:12px;
+background:#25262a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px
+}
+.filename{font-size:16px;word-break:break-word}
+.meta{color:#92939a;font-size:13px;margin-top:4px}
+.file-actions{margin-left:auto;display:flex;gap:6px}
+.small{
+background:#292a2e;
+color:#fff;
+padding:8px 10px
+}
+.delete{color:#ff6b6b}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#111214ee;
+border-top:1px solid #292a2e;
+display:flex;
+justify-content:center;
+gap:60px;
+padding:12px 10px calc(12px + env(safe-area-inset-bottom));
+backdrop-filter:blur(14px)
+}
+.nav{text-align:center;color:#999;font-size:12px}
+.nav .nicon{font-size:24px}
+.nav.active{color:#e65bc2}
+
+.hidden{display:none!important}
+
+@media(max-width:600px){
+.grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.card{min-height:125px;padding:18px 7px}
+.bottom{gap:30px}
+.logout{padding:8px 10px}
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
-  <div class="header">
-    <div class="avatar">👩🏻</div>
-    <div><h1>Привет, Анастасия 💗</h1><div class="sub">Добро пожаловать в твой личный мир ✨</div></div>
-    <div class="menu">☰</div>
-  </div>
 
-  <div class="grid">
-    <div class="card"><div class="icon">🌄</div><div class="name">Мои фото</div><div class="count">248 файлов</div></div>
-    <div class="card"><div class="icon">📄</div><div class="name">Документы</div><div class="count">58 файлов</div></div>
-    <div class="card"><div class="icon">🎵</div><div class="name">Музыка</div><div class="count">127 треков</div></div>
-    <div class="card"><div class="icon">💻</div><div class="name">Программы</div><div class="count">24 файла</div></div>
-    <div class="card"><div class="icon">📁</div><div class="name">Файлы</div><div class="count">312 файлов</div></div>
-    <div class="card"><div class="icon">⭐</div><div class="name">Избранное</div><div class="count">16 файлов</div></div>
-  </div>
+<div class="header">
+<div class="avatar">👩🏻</div>
+<div>
+<h1>Привет, Анастасия 💗</h1>
+<div class="sub">Твой личный защищённый облачный мир ✨</div>
+</div>
+<button class="logout hidden" id="logoutBtn">Выйти</button>
+</div>
 
-  <div class="panel">
-    <div class="panel-head"><b>Недавние файлы</b><span class="pink">Смотреть все</span></div>
-    <div class="file"><div class="fileicon">🌅</div><div><div class="filename">Отпуск_2024.jpg</div><div class="meta">Фото · 2.3 MB · 15.05.2024</div></div><div class="dots">⋮</div></div>
-    <div class="file"><div class="fileicon">📕</div><div><div class="filename">Договор.pdf</div><div class="meta">Документ · 1.1 MB · 14.05.2024</div></div><div class="dots">⋮</div></div>
-    <div class="file"><div class="fileicon">🎵</div><div><div class="filename">Любимая песня.mp3</div><div class="meta">Музыка · 4.6 MB · 13.05.2024</div></div><div class="dots">⋮</div></div>
-    <div class="file"><div class="fileicon">💿</div><div><div class="filename">Программа.exe</div><div class="meta">Программа · 89.3 MB · 12.05.2024</div></div><div class="dots">⋮</div></div>
-  </div>
+<!-- AUTH -->
+<div class="auth" id="authBox">
 
-  <div class="player">
-    <div class="panel-head"><b class="pink">Сейчас играет</b><span class="pink">☷</span></div>
-    <div class="song"><div class="cover">🎧</div><div><div class="filename">Night Drive</div><div class="meta">The Midnight</div></div></div>
-    <div class="progress"><span></span></div>
-    <div class="times"><span>1:42</span><span>4:26</span></div>
-    <div class="controls"><span>◀</span><span>▶</span><span>▶|</span></div>
-  </div>
+<h2>☁️ Вход в Personal Cloud</h2>
+
+<input
+id="email"
+type="email"
+placeholder="Email"
+autocomplete="email">
+
+<input
+id="password"
+type="password"
+placeholder="Пароль"
+autocomplete="current-password">
+
+<button class="primary" id="loginBtn">
+Войти
+</button>
+
+<button class="secondary" id="signupBtn">
+Создать аккаунт
+</button>
+
+<div class="status" id="authStatus"></div>
+
+</div>
+
+<!-- CLOUD -->
+<div id="cloudBox" class="hidden">
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🌄</div>
+<div class="name">Мои фото</div>
+<div class="count">Облачное хранилище</div>
+</div>
+
+<div class="card">
+<div class="icon">📄</div>
+<div class="name">Документы</div>
+<div class="count">Мои документы</div>
+</div>
+
+<div class="card">
+<div class="icon">🎵</div>
+<div class="name">Музыка</div>
+<div class="count">Моя музыка</div>
+</div>
+
+<div class="card">
+<div class="icon">📁</div>
+<div class="name">Файлы</div>
+<div class="count" id="fileCount">0 файлов</div>
+</div>
+
+<div class="card">
+<div class="icon">⭐</div>
+<div class="name">Избранное</div>
+<div class="count">Скоро</div>
+</div>
+
+<div class="card">
+<div class="icon">☁️</div>
+<div class="name">Cloud</div>
+<div class="count">Supabase Storage</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-head">
+<b>Загрузка файлов</b>
+<span class="pink">☁️</span>
+</div>
+
+<div class="upload">
+
+<label for="fileInput">
+📤 Выбрать файл
+</label>
+
+<input
+id="fileInput"
+type="file"
+multiple>
+
+<div class="status" id="uploadStatus">
+Выбери один или несколько файлов
+</div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-head">
+<b>Мои файлы</b>
+<button class="small" id="refreshBtn">↻</button>
+</div>
+
+<div id="fileList">
+Загрузка...
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="bottom">
-  <div class="nav active"><div class="nicon">⌂</div>Главная</div>
-  <div class="nav"><div class="nicon">☁</div>Загрузить</div>
-  <div class="nav"><div class="nicon">⌕</div>Поиск</div>
-  <div class="nav"><div class="nicon">⚙</div>Настройки</div>
+<div class="nav active">
+<div class="nicon">⌂</div>
+Главная
+</div>
+<div class="nav">
+<div class="nicon">☁</div>
+Cloud
+</div>
+<div class="nav">
+<div class="nicon">⌕</div>
+Поиск
+</div>
+<div class="nav">
+<div class="nicon">⚙</div>
+Настройки
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-/*
-  SUPABASE SETUP
-  1) Replace only SUPABASE_PUBLISHABLE_KEY with your publishable key.
-  2) Do NOT put a secret/service_role key in this file.
-*/
-const SUPABASE_URL = "https://qjqbdgrojavhkyhvepog.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cmIExRNcs5LBrKr-_-9EQg_9-R09DgE";
+
+const SUPABASE_URL =
+"https://qjqbdgrojavhkyhvepog.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_cmIExRNcs5LBrKr-_-9EQg_9-R09DgE";
+
 const BUCKET = "my-files";
 
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const sb = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
 
-async function cloudUser() {
-  const { data: { user } } = await sb.auth.getUser();
-  return user;
+const authBox = document.getElementById("authBox");
+const cloudBox = document.getElementById("cloudBox");
+const logoutBtn = document.getElementById("logoutBtn");
+const authStatus = document.getElementById("authStatus");
+const uploadStatus = document.getElementById("uploadStatus");
+const fileList = document.getElementById("fileList");
+const fileCount = document.getElementById("fileCount");
+
+async function getUser(){
+
+const {
+data:{user}
+}=await sb.auth.getUser();
+
+return user;
+
 }
 
-async function uploadToCloud(file) {
-  const user = await cloudUser();
-  if (!user) throw new Error("Сначала войди в аккаунт.");
-  const path = user.id + "/" + file.name;
-  return sb.storage.from(BUCKET).upload(path, file, {
-    upsert: true,
-    contentType: file.type || "application/octet-stream"
-  });
+async function updateUI(){
+
+const user = await getUser();
+
+if(user){
+
+authBox.classList.add("hidden");
+cloudBox.classList.remove("hidden");
+logoutBtn.classList.remove("hidden");
+
+await loadFiles();
+
+}else{
+
+authBox.classList.remove("hidden");
+cloudBox.classList.add("hidden");
+logoutBtn.classList.add("hidden");
+
 }
 
-async function listMyCloudFiles() {
-  const user = await cloudUser();
-  if (!user) return [];
-  const { data, error } = await sb.storage.from(BUCKET).list(user.id, {
-    limit: 1000,
-    sortBy: { column: "name", order: "asc" }
-  });
-  if (error) throw error;
-  return data || [];
 }
 
-async function getDownloadUrl(fileName) {
-  const user = await cloudUser();
-  if (!user) throw new Error("Сначала войди в аккаунт.");
-  const { data, error } = await sb.storage.from(BUCKET)
-    .createSignedUrl(user.id + "/" + fileName, 3600);
-  if (error) throw error;
-  return data.signedUrl;
+async function login(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value;
+
+authStatus.textContent="Выполняем вход...";
+
+const {error}=await sb.auth.signInWithPassword({
+email,
+password
+});
+
+if(error){
+
+authStatus.textContent="Ошибка: "+error.message;
+return;
+
 }
 
-async function deleteFromCloud(fileName) {
-  const user = await cloudUser();
-  if (!user) throw new Error("Сначала войди в аккаунт.");
-  return sb.storage.from(BUCKET).remove([user.id + "/" + fileName]);
+authStatus.textContent="Вход выполнен ✅";
+
+await updateUI();
+
 }
 
-console.log("Supabase client initialized:", SUPABASE_URL);
+async function signup(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value;
+
+if(!email || !password){
+
+authStatus.textContent="Введите Email и пароль.";
+return;
+
+}
+
+authStatus.textContent="Создаём аккаунт...";
+
+const {data,error}=await sb.auth.signUp({
+email,
+password
+});
+
+if(error){
+
+authStatus.textContent="Ошибка: "+error.message;
+return;
+
+}
+
+if(data.session){
+
+authStatus.textContent="Аккаунт создан ✅";
+}else{
+
+authStatus.textContent=
+"Аккаунт создан. Проверь Email для подтверждения.";
+}
+
+}
+
+async function logout(){
+
+await sb.auth.signOut();
+
+await updateUI();
+
+}
+
+async function uploadFiles(files){
+
+const user=await getUser();
+
+if(!user){
+
+uploadStatus.textContent="Сначала войдите.";
+return;
+
+}
+
+for(const file of files){
+
+uploadStatus.textContent=
+"Загрузка: "+file.name;
+
+const path =
+user.id+"/"+file.name;
+
+const {error}=await sb.storage
+.from(BUCKET)
+.upload(path,file,{
+upsert:true,
+contentType:
+file.type || "application/octet-stream"
+});
+
+if(error){
+
+uploadStatus.textContent=
+"Ошибка: "+error.message;
+
+return;
+
+}
+
+}
+
+uploadStatus.textContent=
+"Все файлы загружены ✅";
+
+await loadFiles();
+
+}
+
+async function loadFiles(){
+
+const user=await getUser();
+
+if(!user)return;
+
+fileList.innerHTML="Загрузка...";
+
+const {data,error}=await sb.storage
+.from(BUCKET)
+.list(user.id,{
+limit:1000,
+sortBy:{
+column:"name",
+order:"asc"
+}
+});
+
+if(error){
+
+fileList.innerHTML=
+"Ошибка загрузки: "+error.message;
+
+return;
+
+}
+
+const files=data || [];
+
+fileCount.textContent=
+files.length+" файлов";
+
+if(files.length===0){
+
+fileList.innerHTML=
+"Пока нет файлов ☁️";
+
+return;
+
+}
+
+fileList.innerHTML="";
+
+for(const file of files){
+
+const row=document.createElement("div");
+
+row.className="file";
+
+row.innerHTML=`
+
+<div class="fileicon">📄</div>
+
+<div>
+<div class="filename">
+${escapeHtml(file.name)}
+</div>
+
+<div class="meta">
+${formatSize(file.metadata?.size || 0)}
+</div>
+</div>
+
+<div class="file-actions">
+
+<button class="small download">
+↓
+</button>
+
+<button class="small delete">
+×
+</button>
+
+</div>
+`;
+
+row.querySelector(".download")
+.onclick=()=>downloadFile(file.name);
+
+row.querySelector(".delete")
+.onclick=()=>deleteFile(file.name);
+
+fileList.appendChild(row);
+
+}
+
+}
+
+async function downloadFile(name){
+
+const user=await getUser();
+
+if(!user)return;
+
+const {data,error}=await sb.storage
+.from(BUCKET)
+.createSignedUrl(
+user.id+"/"+name,
+3600
+);
+
+if(error){
+
+alert(error.message);
+return;
+
+}
+
+window.open(data.signedUrl,"_blank");
+
+}
+
+async function deleteFile(name){
+
+if(!confirm(
+"Удалить файл «"+name+"»?"
+))return;
+
+const user=await getUser();
+
+if(!user)return;
+
+const {error}=await sb.storage
+.from(BUCKET)
+.remove([
+user.id+"/"+name
+]);
+
+if(error){
+
+alert(error.message);
+return;
+
+}
+
+await loadFiles();
+
+}
+
+function formatSize(bytes){
+
+if(!bytes)return "Размер неизвестен";
+
+if(bytes<1024)
+return bytes+" B";
+
+if(bytes<1024*1024)
+return (bytes/1024).toFixed(1)+" KB";
+
+return (bytes/1024/1024).toFixed(1)+" MB";
+
+}
+
+function escapeHtml(text){
+
+return text
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+document.getElementById("loginBtn")
+.addEventListener("click",login);
+
+document.getElementById("signupBtn")
+.addEventListener("click",signup);
+
+document.getElementById("logoutBtn")
+.addEventListener("click",logout);
+
+document.getElementById("refreshBtn")
+.addEventListener("click",loadFiles);
+
+document.getElementById("fileInput")
+.addEventListener("change",function(){
+
+if(this.files.length)
+uploadFiles(this.files);
+
+});
+
+sb.auth.onAuthStateChange(
+()=>updateUI()
+);
+
+updateUI();
+
 </script>
 
 </body>
